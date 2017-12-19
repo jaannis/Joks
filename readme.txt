@@ -1,0 +1,1 @@
+smieklîgs joks ko neviens nesaprot, ha ha

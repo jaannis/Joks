@@ -1,0 +1,7 @@
+C:\kods\Joks\RCS\smartercalculator\bin\Debug\smartercalculator.exe.config
+C:\kods\Joks\RCS\smartercalculator\bin\Debug\smartercalculator.exe
+C:\kods\Joks\RCS\smartercalculator\bin\Debug\smartercalculator.pdb
+C:\kods\Joks\RCS\smartercalculator\obj\Debug\smartercalculator.csprojResolveAssemblyReference.cache
+C:\kods\Joks\RCS\smartercalculator\obj\Debug\smartercalculator.csproj.CoreCompileInputs.cache
+C:\kods\Joks\RCS\smartercalculator\obj\Debug\smartercalculator.exe
+C:\kods\Joks\RCS\smartercalculator\obj\Debug\smartercalculator.pdb

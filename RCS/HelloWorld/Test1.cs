@@ -8,11 +8,12 @@ namespace HelloWorld
 {
     class Test1
     {
+        public string HelloText;
         public void SayHello()
         {
             string myName;
             myName = Console.ReadLine();
-            Console.WriteLine("NOT hello world" + " " + myName);
+            Console.WriteLine(HelloText + " " + myName);
         }
 
     }

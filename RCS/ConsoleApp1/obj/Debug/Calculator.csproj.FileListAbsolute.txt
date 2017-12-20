@@ -1,0 +1,7 @@
+C:\kods\Joks\RCS\ConsoleApp1\bin\Debug\ConsoleApp1.exe.config
+C:\kods\Joks\RCS\ConsoleApp1\bin\Debug\ConsoleApp1.exe
+C:\kods\Joks\RCS\ConsoleApp1\bin\Debug\ConsoleApp1.pdb
+C:\kods\Joks\RCS\ConsoleApp1\obj\Debug\Calculator.csprojResolveAssemblyReference.cache
+C:\kods\Joks\RCS\ConsoleApp1\obj\Debug\Calculator.csproj.CoreCompileInputs.cache
+C:\kods\Joks\RCS\ConsoleApp1\obj\Debug\ConsoleApp1.exe
+C:\kods\Joks\RCS\ConsoleApp1\obj\Debug\ConsoleApp1.pdb

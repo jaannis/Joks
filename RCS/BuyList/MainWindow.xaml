@@ -6,12 +6,13 @@
         xmlns:local="clr-namespace:BuyList"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-    <Grid>
+    <Grid Background="Azure">
         <TextBox x:Name="BuyListItemName" HorizontalAlignment="Left" Height="50" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="155" Margin="24,24,0,0"/>
         <Button x:Name="AddListItemButton" Click="AddListItemButton_Click" Content="Pievienot pirkumu" HorizontalAlignment="Left" Margin="195,24,0,0" VerticalAlignment="Top" Width="110" Height="19"/>
-        <TextBlock x:Name ="BuyItemName" HorizontalAlignment="Left" Margin="24,99,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="49" Width="155"/>
-        <ItemsControl x:Name="BuyItemListControl">
-                       
-        </ItemsControl>
+        <ScrollViewer RenderTransformOrigin="0.443,0.457" Margin="0,100,317,143">
+            <ItemsControl x:Name="BuyItemListControl"/>
+        </ScrollViewer>
+
+
     </Grid>
 </Window>

@@ -15,18 +15,20 @@ using System.Windows.Shapes;
 
 namespace BuyList
 {
+    using System.Collections.ObjectModel;
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
-        public List<string> BuyItemsList = new List<string>();
+        public ObservableCollection<string> BuyItemsList = new ObservableCollection<string>();
         public MainWindow()
         {
             InitializeComponent();
 
-            BuyListItemName.Text = "Lūdzu ievadiet pirkumu";
-
+            this.BuyListItemName.Text = "Lūdzu ievadiet pirkumu";
+            
+          
             //pasakam BuyItemsControl, ka ir jāizmanto mūsu saraksts,
             //kā rādāmo lietu avots (jāskatās no saraksta, ko rādīt)
             this.BuyItemListControl.ItemsSource = this.BuyItemsList;

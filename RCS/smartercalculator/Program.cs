@@ -12,31 +12,18 @@ namespace smartercalculator
         {
 
             //izveido kalkulatora objektu
+            math parser;
+            parser = new math();
 
             //paprasīt lietotājam ievadīt ievadi
             Console.WriteLine("Please enter darbība");
             string input = Console.ReadLine();
 
-            //1+2+3 skaits ir 5, pēdējā simbola pozīcija ir 4
-            // 1+ skaits ir 2 pēdējā pozīcijā ir 1
-            int result;
-            int counter = 0;
-            while(counter < input.Lenght)
-            {
-                char symbol = input[counter];
-                if(symbol == '+')
-                {
-                    Console.WriteLine("plus");
-                }
-                else
-                {
-                    int number;
-                    number = Int32.Parse(symbol.ToString());
-                    Console.WriteLine("number" + number);
-                }
-                counter = counter + 1;
-                
-            }
+            //izsauc aprēķināšanas funkciju un saglabā rezultātu
+            int result = parser.ParseMath(input);
+
+            //izvada rezultātu uz ekrāna
+            Console.WriteLine("Your result" + result);
 
             Console.ReadLine();
 

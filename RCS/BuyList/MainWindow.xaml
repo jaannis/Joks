@@ -6,12 +6,31 @@
         xmlns:local="clr-namespace:BuyList"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-    <Grid Background="Azure">
-        <TextBox x:Name="BuyListItemName" HorizontalAlignment="Left" Height="50" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="155" Margin="24,24,0,0"/>
-        <Button x:Name="AddListItemButton" Click="AddListItemButton_Click" Content="Pievienot pirkumu" HorizontalAlignment="Left" Margin="195,24,0,0" VerticalAlignment="Top" Width="110" Height="19"/>
-        <ScrollViewer RenderTransformOrigin="0.443,0.457" Margin="0,100,317,143">
-            <ItemsControl x:Name="BuyItemListControl"/>
+    <Grid Background="Azure" Margin="0,10,0,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="26*"/>
+            <ColumnDefinition Width="86*"/>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="405*"/>
+        </Grid.ColumnDefinitions>
+        <TextBox x:Name="BuyListItemName" HorizontalAlignment="Left" Height="50" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="232" Margin="24,24,0,0" Grid.ColumnSpan="6"/>
+        <Button x:Name="AddListItemButton" Click="AddListItemButton_Click" Content="Pievienot pirkumu" HorizontalAlignment="Left" Margin="257,24,0,0" VerticalAlignment="Top" Width="110" Height="19" Grid.Column="5"/>
+        <ScrollViewer RenderTransformOrigin="1.514,0.512" Margin="24,100,281,87" Grid.ColumnSpan="6">
+            <ListBox x:Name="BuyItemListControl" SelectionMode="Multiple">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <WrapPanel>
+                            <TextBlock FontFamily="impact" Text="{Binding}" />
+                        </WrapPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
         </ScrollViewer>
+        <Button Content="Saglabāt lietas" HorizontalAlignment="Left" VerticalAlignment="Top" Width="110" Margin="257,54,0,0" Click="Button_Click" Grid.Column="5" Height="20"/>
+        <Button Content="Ielādēt lietas" HorizontalAlignment="Left" Margin="257,85,0,0" VerticalAlignment="Top" Width="110" Click="Button_Click_1" Grid.Column="5" Height="20"/>
+        <Button Content="Dzēst iepirkumu" Grid.Column="5" HorizontalAlignment="Left" Margin="257,120,0,0" VerticalAlignment="Top" Width="110" RenderTransformOrigin="-1.061,-1.082" Height="20" Click="Button_Click_2"/>
 
 
     </Grid>

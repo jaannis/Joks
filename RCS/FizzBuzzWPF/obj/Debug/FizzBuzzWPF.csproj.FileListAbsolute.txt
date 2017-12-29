@@ -1,0 +1,15 @@
+C:\code\Joks\RCS\FizzBuzzWPF\bin\Debug\FizzBuzzWPF.exe.config
+C:\code\Joks\RCS\FizzBuzzWPF\bin\Debug\FizzBuzzWPF.exe
+C:\code\Joks\RCS\FizzBuzzWPF\bin\Debug\FizzBuzzWPF.pdb
+C:\code\Joks\RCS\FizzBuzzWPF\obj\Debug\FizzBuzzWPF.csprojResolveAssemblyReference.cache
+C:\code\Joks\RCS\FizzBuzzWPF\obj\Debug\MainWindow.g.cs
+C:\code\Joks\RCS\FizzBuzzWPF\obj\Debug\App.g.cs
+C:\code\Joks\RCS\FizzBuzzWPF\obj\Debug\FizzBuzzWPF_MarkupCompile.cache
+C:\code\Joks\RCS\FizzBuzzWPF\obj\Debug\FizzBuzzWPF_MarkupCompile.lref
+C:\code\Joks\RCS\FizzBuzzWPF\obj\Debug\MainWindow.baml
+C:\code\Joks\RCS\FizzBuzzWPF\obj\Debug\FizzBuzzWPF.g.resources
+C:\code\Joks\RCS\FizzBuzzWPF\obj\Debug\FizzBuzzWPF.Properties.Resources.resources
+C:\code\Joks\RCS\FizzBuzzWPF\obj\Debug\FizzBuzzWPF.csproj.GenerateResource.Cache
+C:\code\Joks\RCS\FizzBuzzWPF\obj\Debug\FizzBuzzWPF.csproj.CoreCompileInputs.cache
+C:\code\Joks\RCS\FizzBuzzWPF\obj\Debug\FizzBuzzWPF.exe
+C:\code\Joks\RCS\FizzBuzzWPF\obj\Debug\FizzBuzzWPF.pdb

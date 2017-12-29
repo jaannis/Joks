@@ -27,7 +27,8 @@ namespace FizzBuzzWPF
 
         private void RangeButton_Click(object sender, RoutedEventArgs e)
         {
-
+            int number;
+            Int32.TryParse(input, out number);
         }
     }
 }

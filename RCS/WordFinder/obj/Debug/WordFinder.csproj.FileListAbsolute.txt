@@ -1,0 +1,7 @@
+C:\code\Joks\RCS\WordFinder\bin\Debug\WordFinder.exe.config
+C:\code\Joks\RCS\WordFinder\bin\Debug\WordFinder.exe
+C:\code\Joks\RCS\WordFinder\bin\Debug\WordFinder.pdb
+C:\code\Joks\RCS\WordFinder\obj\Debug\WordFinder.csprojResolveAssemblyReference.cache
+C:\code\Joks\RCS\WordFinder\obj\Debug\WordFinder.csproj.CoreCompileInputs.cache
+C:\code\Joks\RCS\WordFinder\obj\Debug\WordFinder.exe
+C:\code\Joks\RCS\WordFinder\obj\Debug\WordFinder.pdb

@@ -5,3 +5,10 @@ C:\code\Joks\RCS\FizzBuzz\bin\Debug\FizzBuzz.exe
 C:\code\Joks\RCS\FizzBuzz\bin\Debug\FizzBuzz.pdb
 C:\code\Joks\RCS\FizzBuzz\obj\Debug\FizzBuzz.exe
 C:\code\Joks\RCS\FizzBuzz\obj\Debug\FizzBuzz.pdb
+C:\Users\Janis\Documents\GitHub\Joks\RCS\FizzBuzz\bin\Debug\FizzBuzz.exe.config
+C:\Users\Janis\Documents\GitHub\Joks\RCS\FizzBuzz\bin\Debug\FizzBuzz.exe
+C:\Users\Janis\Documents\GitHub\Joks\RCS\FizzBuzz\bin\Debug\FizzBuzz.pdb
+C:\Users\Janis\Documents\GitHub\Joks\RCS\FizzBuzz\obj\Debug\FizzBuzz.csprojResolveAssemblyReference.cache
+C:\Users\Janis\Documents\GitHub\Joks\RCS\FizzBuzz\obj\Debug\FizzBuzz.csproj.CoreCompileInputs.cache
+C:\Users\Janis\Documents\GitHub\Joks\RCS\FizzBuzz\obj\Debug\FizzBuzz.exe
+C:\Users\Janis\Documents\GitHub\Joks\RCS\FizzBuzz\obj\Debug\FizzBuzz.pdb

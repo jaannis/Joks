@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace FizzBuzzWPF
+namespace jaunums
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -24,11 +24,5 @@ namespace FizzBuzzWPF
         {
             InitializeComponent();
         }
-
-        private void RangeButton_Click(object sender, RoutedEventArgs e)
-        {
-            int number;
-            Int32.TryParse(input, out number);
-        }
-    } 
+    }
 }

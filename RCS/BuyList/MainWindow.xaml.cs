@@ -75,8 +75,9 @@ namespace BuyList
 
             for (int i = 0; i < selectedItems.Count; i++)
             {
-                var selectedItem = selectedItems[1] as string);
-            this.BuyItemsList.Remove(selectedItem);
+                var selectedItem = selectedItems[1] as string;
+                this.BuyItemsList.Remove(selectedItem);
+            }
         }
 
     }

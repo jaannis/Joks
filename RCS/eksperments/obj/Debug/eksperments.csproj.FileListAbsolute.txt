@@ -1,7 +1,0 @@
-C:\code\Joks\RCS\eksperments\bin\Debug\eksperments.exe.config
-C:\code\Joks\RCS\eksperments\bin\Debug\eksperments.exe
-C:\code\Joks\RCS\eksperments\bin\Debug\eksperments.pdb
-C:\code\Joks\RCS\eksperments\obj\Debug\eksperments.csprojResolveAssemblyReference.cache
-C:\code\Joks\RCS\eksperments\obj\Debug\eksperments.csproj.CoreCompileInputs.cache
-C:\code\Joks\RCS\eksperments\obj\Debug\eksperments.exe
-C:\code\Joks\RCS\eksperments\obj\Debug\eksperments.pdb

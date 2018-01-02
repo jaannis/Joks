@@ -25,8 +25,7 @@ namespace eksperments
             foreach (int num in skaitlis)
             {
 
-                //Meklējam FizzBuzzu, nezinu kāpēc liek %
-                //bet tā daudz kur internetā bija
+                //Meklējam FizzBuzzu
                 if (num % 3 == 0 && num % 5 == 0)
                 {
                     Console.WriteLine("FizzBuzz");

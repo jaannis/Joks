@@ -5,3 +5,10 @@ C:\code\Joks\RCS\WordFinder\obj\Debug\WordFinder.csprojResolveAssemblyReference.
 C:\code\Joks\RCS\WordFinder\obj\Debug\WordFinder.csproj.CoreCompileInputs.cache
 C:\code\Joks\RCS\WordFinder\obj\Debug\WordFinder.exe
 C:\code\Joks\RCS\WordFinder\obj\Debug\WordFinder.pdb
+C:\Users\Janis\Documents\GitHub\Joks\RCS\WordFinder\bin\Debug\WordFinder.exe.config
+C:\Users\Janis\Documents\GitHub\Joks\RCS\WordFinder\bin\Debug\WordFinder.exe
+C:\Users\Janis\Documents\GitHub\Joks\RCS\WordFinder\bin\Debug\WordFinder.pdb
+C:\Users\Janis\Documents\GitHub\Joks\RCS\WordFinder\obj\Debug\WordFinder.csprojResolveAssemblyReference.cache
+C:\Users\Janis\Documents\GitHub\Joks\RCS\WordFinder\obj\Debug\WordFinder.csproj.CoreCompileInputs.cache
+C:\Users\Janis\Documents\GitHub\Joks\RCS\WordFinder\obj\Debug\WordFinder.exe
+C:\Users\Janis\Documents\GitHub\Joks\RCS\WordFinder\obj\Debug\WordFinder.pdb

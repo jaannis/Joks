@@ -19,14 +19,13 @@ namespace eksperments
             Int32.TryParse(input, out number);
 
             //Paņemam no konsoles skaitli un no tā uztaisam range
-            IEnumerable<int> skaitlis = Enumerable.Range(1, number);
+            IEnumerable<int> numberRange = Enumerable.Range(1, number);
 
             //Meklējam Fizus un Buzus
-            foreach (int num in skaitlis)
+            foreach (int num in numberRange)
             {
 
-                //Meklējam FizzBuzzu, nezinu kāpēc liek %
-                //bet tā daudz kur internetā bija
+                //Meklējam FizzBuzzu
                 if (num % 3 == 0 && num % 5 == 0)
                 {
                     Console.WriteLine("FizzBuzz");

@@ -29,9 +29,19 @@ namespace BuyList
 
             this.BuyListItemName.Text = "";
 
+            //Ielādē staffu atveroties
+            var AllItemsFromFile = System.IO.File.ReadAllLines(@"C:\mans_fails\hehehe.txt");
 
-            
-          
+            //sadala staffu no viena veseluma pa vienam
+            BuyItemListControl.ItemsSource = BuyItemsList;
+            foreach (var ItemFromFile in AllItemsFromFile)
+            {
+                this.BuyItemsList.Add(ItemFromFile);
+            }
+
+
+
+
             //pasakam BuyItemsControl, ka ir jāizmanto mūsu saraksts,
             //kā rādāmo lietu avots (jāskatās no saraksta, ko rādīt)
             this.BuyItemListControl.ItemsSource = this.BuyItemsList;
@@ -52,8 +62,13 @@ namespace BuyList
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-             File.WriteAllLines(@"C:\mans_fails\hehehe.txt", this.BuyItemsList);
-            
+            SaveAllTodos();
+        }
+
+        public void SaveAllTodos()
+        {
+            File.WriteAllLines(@"C:\mans_fails\hehehe.txt", this.BuyItemsList);
+
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
@@ -75,11 +90,26 @@ namespace BuyList
 
             for (int i = 0; i < selectedItems.Count; i++)
             {
-                var selectedItem = selectedItems[1] as string;
+                var selectedItem = selectedItems[i] as string;
                 this.BuyItemsList.Remove(selectedItem);
             }
         }
 
+        private void MainWindow_OnClosing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            this.SaveAllTodos();
+        }
+
+        private void BuyListItemName_onKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                this.BuyItemsList.Add(this.BuyListItemName.Text);
+
+                //Nodzēš veco tekstu
+                this.BuyListItemName.Text = "";
+            }
+        }
     }
-    }
+    
 }

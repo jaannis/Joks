@@ -27,11 +27,11 @@ namespace CarDatingSite.Controllers
             using (var catDb = new CatDB())
             {
                 //pievieno kaķi kaķu sarakstam
-                catDb.CatProfiles.Add(CatFromDb);
-                catDb.CatProfiles.Add(anotherCatFromDb);
+                //catDb.CatProfiles.Add(CatFromDb);
+                //catDb.CatProfiles.Add(anotherCatFromDb);
 
                 //saglabā datubāzē veiktās izmaiņas
-                catDb.SaveChanges();
+                //catDb.SaveChanges();
 
                 //iegūt kaķu sarakstu no kaķu datubāzes tabulas
                 var catListFromDb = catDb.CatProfiles.ToList();

@@ -5,10 +5,17 @@ using System.Web;
 
 namespace CarDatingSite.Models
 {
+    using System.ComponentModel.DataAnnotations;
+
     public class CatProfile
     {
-        public string CatName;
+        [Key]        
+        public int CatId { get; set; }
 
-        public int CatAge;
+        public string CatName { get; set; }
+
+        public int CatAge { get; set; }
+
+        public string CatImage { get; set; }
     }
 }

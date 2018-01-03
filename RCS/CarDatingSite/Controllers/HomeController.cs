@@ -7,6 +7,7 @@ using System.Web.Mvc;
 namespace CarDatingSite.Controllers
 {
     using CarDatingSite.Models;
+    using System.Net;
     public class HomeController : Controller
     {
         public ActionResult Index()
@@ -41,6 +42,26 @@ namespace CarDatingSite.Controllers
             }
 
             
+        }
+
+        public ActionResult DeleteCats(int deletableCatId)
+        {
+            using (var catDb = new CatDB())
+            {
+
+                //atrast kaķi kam pieder norādītais idenfikators
+                var deleteableCat = catDb.CatProfiles.First(catProfile =>catProfile.CatId == deletableCatId);
+
+                //idzēst šo kaķi no tabulas
+                catDb.CatProfiles.Remove(deleteableCat);
+
+                //saglabāt veiktās izmaiņas
+                catDb.SaveChanges();
+                 
+            }
+            //Jāpievineo using.System.Net
+            //pavēlam browserim atgriezied Index lapā (t.i pārlādē to)
+            return RedirectToAction("Index");
         }
 
         public ActionResult About()

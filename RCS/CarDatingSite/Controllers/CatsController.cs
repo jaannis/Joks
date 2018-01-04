@@ -8,34 +8,17 @@ namespace CarDatingSite.Controllers
 
 {
     using CarDatingSite.Models;
+    using System.Data.Entity.Migrations;
 
     public class CatsController : Controller
     {
         // GET: Cats
         public ActionResult Index()
         {
-            //izveido kaķi
-            var CatFromDb = new CatProfile();
-            CatFromDb.CatName = "Reinis";
-            CatFromDb.CatAge = 15;
-            CatFromDb.CatImage = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Cat_March_2010-1.jpg/800px-Cat_March_2010-1.jpg";
-
-
-            //izveido citu kaķi
-            var anotherCatFromDb = new CatProfile();
-            anotherCatFromDb.CatName = "Cits Reinis";
-            anotherCatFromDb.CatAge = 5;
-            anotherCatFromDb.CatImage = "https://www.petmd.com/sites/default/files/what-does-it-mean-when-cat-wags-tail.jpg";
-
+            
             using (var catDb = new CatDB())
             {
-                //pievieno kaķi kaķu sarakstam
-                catDb.CatProfiles.Add(CatFromDb);
-                catDb.CatProfiles.Add(anotherCatFromDb);
-
-                //saglabā datubāzē veiktās izmaiņas
-                catDb.SaveChanges();
-
+                
                 //iegūt kaķu sarakstu no kaķu datubāzes tabulas
                 var catListFromDb = catDb.CatProfiles.ToList();
 
@@ -44,6 +27,64 @@ namespace CarDatingSite.Controllers
 
             }
         }
+
+        //pievienosim kaķi
+        public ActionResult AddCat()
+        {
+
+             return View();
+        }
+
+        [HttpPost]
+        public ActionResult AddCat(CatProfile userCreatedCat)
+        {
+            if (ModelState.IsValid == false)
+            {
+                return RedirectToAction("Index");
+            }
+
+            //izveidot savienojumu ar datu bāzi
+            using (var catDb = new CatDB())
+            {
+                //pievieno kaķi kaķu tabulā
+                catDb.CatProfiles.Add(userCreatedCat);
+
+                //saglabājam izmaiņas datubāzē
+                catDb.SaveChanges();
+            }
+
+            //pavēlām browserim atgriezties index lapā
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public ActionResult EditCat(CatProfile catProfile)
+        {
+            using (var catDb = new CatDB())
+            {
+
+                catDb.Entry(catProfile).CurrentValues.SetValues(catProfile);
+                catDb.SaveChanges();
+            }
+
+            return RedirectToAction("Index");
+        }
+
+
+        //kaķa rediģēšana
+        public ActionResult EditCat(int editableCatId)
+        {
+            using (var catDb = new CatDB())
+            {
+                var editableCat = catDb.CatProfiles.First(catProfile => catProfile.CatId == editableCatId);
+                return View("EditCat",editableCat);
+            }
+        }
+
+
+        
+
+
         public ActionResult DeleteCats(int deletableCatId)
         {
             using (var catDb = new CatDB())

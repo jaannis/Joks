@@ -6,6 +6,7 @@ using System.Web;
 namespace CarDatingSite.Models
 {
     using System.ComponentModel.DataAnnotations;
+    using System.IO;
 
     public class CatProfile
     {
@@ -26,5 +27,9 @@ namespace CarDatingSite.Models
         [Display(Name = "Kaķa apraksts")]
         [Required(ErrorMessage = "Kaut kam labam taču jābūt")]
         public string CatDescription { get; set; }
+
+
+        public virtual File File { get; set; }
+
     }
 }

@@ -3,7 +3,8 @@
 
 <h2>Rediģēt kaķi</h2>
 
-@using (Html.BeginForm("EditCat", "Cats", FormMethod.Post))
+@using (Html.BeginForm("EditCat", "Cats", FormMethod.Post, new { enctype = "multipart/form-data" }
+))
 {
     @Html.HiddenFor(Model => Model.CatId)
 
@@ -34,6 +35,7 @@
         </div>
     </div>
 
+
     <div class="form-group">
         @Html.LabelFor(model => model.CatDescription, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
@@ -41,6 +43,14 @@
             @Html.ValidationMessageFor(model => model.CatDescription, "", new { @class = "text-danger" })
         </div>
     </div>
+
+    <div class="form-group">
+
+        Kaķa attēls:
+        <div class="col-md-10">
+            <input type="file" id="ProfilePicture" name="uploadedPicture" />
+        </div>
+</div>
 
 
 </div>

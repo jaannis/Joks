@@ -10,6 +10,7 @@ namespace CarDatingSite.Controllers
     using System.Data.Entity;
     using CarDatingSite.Models;
     using System.Data.Entity.Migrations;
+    using System.IO;
 
     public class CatsController : Controller
     {
@@ -59,7 +60,7 @@ namespace CarDatingSite.Controllers
         }
 
         [HttpPost]
-        public ActionResult EditCat(CatProfile catProfile)
+        public ActionResult EditCat(CatProfile catProfile, HttpPostedFileBase uploadedPicture)
         {
             if (ModelState.IsValid == false)
             {
@@ -68,6 +69,31 @@ namespace CarDatingSite.Controllers
 
             using (var catDb = new CatDB())
             {
+                //izveidojam jaunu profila bildes datubāzes ekspemplāru, ko ierakstīsim datubāzē
+                var profilePic = new Models.File();
+                //saglabājam bildes faila nosuakumu
+                profilePic.FileName = Path.GetFileName(uploadedPicture.FileName);
+
+                //saglabājam bildes tipu
+                profilePic.ContentType = uploadedPicture.ContentType;
+
+           
+                //izmantojam BynaryReader lai pārvērstu bildi baitos
+                using (var reader = new BinaryReader(uploadedPicture.InputStream))
+                {
+                    profilePic.Content = reader.ReadBytes(uploadedPicture.ContentLength);
+                }
+
+                //pasakam profile bildei kas ir piesaistītais kaķis
+                profilePic.CatProfileId = catProfile.CatId;
+                profilePic.CatProfile = catProfile;
+
+                //pievienojam profila bildes datubāzes ierakstu Files tabulai
+                catDb.Files.Add(profilePic);
+
+                //pasakam kaķu profila bildei, ka viņa ir viņa profila bilde
+                catProfile.File = profilePic;
+
                 //vajag using System.Data.Entity;
                 catDb.Entry(catProfile).State = System.Data.Entity.EntityState.Modified;
                 catDb.SaveChanges();

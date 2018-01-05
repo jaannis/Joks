@@ -208,10 +208,15 @@
     <Compile Include="Migrations\201801041836274_sup.Designer.cs">
       <DependentUpon>201801041836274_sup.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201801051848130_new table.cs" />
+    <Compile Include="Migrations\201801051848130_new table.Designer.cs">
+      <DependentUpon>201801051848130_new table.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CatDB.cs" />
     <Compile Include="Models\CatProfile.cs" />
+    <Compile Include="Models\File.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -280,6 +285,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\File\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -303,6 +309,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201801041836274_sup.resx">
       <DependentUpon>201801041836274_sup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801051848130_new table.resx">
+      <DependentUpon>201801051848130_new table.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

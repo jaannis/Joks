@@ -3,7 +3,8 @@
 
 <h2>AddCat</h2>
 
-@using (Html.BeginForm("AddCat", "Cats", FormMethod.Post))
+@using (Html.BeginForm("AddCat", "Cats", FormMethod.Post, new { enctype = "multipart/form-data" }
+))
 {
     <div class="form-horizontal">
         <div class="form-group">

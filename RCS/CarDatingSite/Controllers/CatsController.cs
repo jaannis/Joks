@@ -7,6 +7,7 @@ using System.Web.Mvc;
 namespace CarDatingSite.Controllers
 
 {
+    using System.Data.Entity;
     using CarDatingSite.Models;
     using System.Data.Entity.Migrations;
 
@@ -40,7 +41,7 @@ namespace CarDatingSite.Controllers
         {
             if (ModelState.IsValid == false)
             {
-                return RedirectToAction("Index");
+                return View(userCreatedCat);
             }
 
             //izveidot savienojumu ar datu bāzi
@@ -60,10 +61,15 @@ namespace CarDatingSite.Controllers
         [HttpPost]
         public ActionResult EditCat(CatProfile catProfile)
         {
+            if (ModelState.IsValid == false)
+            {
+                return View(catProfile);
+            }
+
             using (var catDb = new CatDB())
             {
-
-                catDb.Entry(catProfile).CurrentValues.SetValues(catProfile);
+                //vajag using System.Data.Entity;
+                catDb.Entry(catProfile).State = System.Data.Entity.EntityState.Modified;
                 catDb.SaveChanges();
             }
 

@@ -1,0 +1,24 @@
+﻿@model List<CarDatingSite.Models.Blog>
+
+
+@Html.ActionLink("Palasīt blogu", "AddPost", "Blog")
+
+
+<!-- kad vēlamies izsaukt c# kodu, lietojam at simbolu -->
+
+@foreach (var post in Model)
+{
+    @Html.ActionLink("Rediģēt ierakstu", "EditPost", "Post", new { editablePost = post.PostId }, null)
+    <div class="row">
+        <div class="col-md-4">
+            @Html.ActionLink("Nodzēst ierakstu", "DeletePost", "Post", new { deletablePostId = post.PostId }, null)
+            <h2>E-pasts : @post.Email</h2>
+            <p> Name : @post.Name</p>
+            <p> Title : @post.Title</p>
+            <p>Blog message :@post.BlogText</p>
+            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+        </div>
+    </div>
+
+}
+

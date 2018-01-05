@@ -12,5 +12,8 @@ namespace CarDatingSite.Models
         public DbSet<CatProfile> CatProfiles { get; set; }
 
         public DbSet<File> Files { get; set; }
+
+        public DbSet<Blog> Posts { get; set; }
+
     }
 }

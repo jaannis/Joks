@@ -190,6 +190,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\CatsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -212,8 +213,25 @@
     <Compile Include="Migrations\201801051848130_new table.Designer.cs">
       <DependentUpon>201801051848130_new table.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201801052103324_meginajums1.cs" />
+    <Compile Include="Migrations\201801052103324_meginajums1.Designer.cs">
+      <DependentUpon>201801052103324_meginajums1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801052107474_meginajums2.cs" />
+    <Compile Include="Migrations\201801052107474_meginajums2.Designer.cs">
+      <DependentUpon>201801052107474_meginajums2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801052110103_meginajums3.cs" />
+    <Compile Include="Migrations\201801052110103_meginajums3.Designer.cs">
+      <DependentUpon>201801052110103_meginajums3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801052212039_meginajums4.cs" />
+    <Compile Include="Migrations\201801052212039_meginajums4.Designer.cs">
+      <DependentUpon>201801052212039_meginajums4.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Blog.cs" />
     <Compile Include="Models\CatDB.cs" />
     <Compile Include="Models\CatProfile.cs" />
     <Compile Include="Models\File.cs" />
@@ -282,6 +300,9 @@
     <Content Include="Views\Cats\Index.cshtml" />
     <Content Include="Views\Cats\AddCat.cshtml" />
     <Content Include="Views\Cats\EditCat.cshtml" />
+    <Content Include="Views\Blog\Index.cshtml" />
+    <Content Include="Views\Blog\EditPost.cshtml" />
+    <Content Include="Views\Blog\AddPost.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -312,6 +333,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201801051848130_new table.resx">
       <DependentUpon>201801051848130_new table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801052103324_meginajums1.resx">
+      <DependentUpon>201801052103324_meginajums1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801052107474_meginajums2.resx">
+      <DependentUpon>201801052107474_meginajums2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801052110103_meginajums3.resx">
+      <DependentUpon>201801052110103_meginajums3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801052212039_meginajums4.resx">
+      <DependentUpon>201801052212039_meginajums4.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

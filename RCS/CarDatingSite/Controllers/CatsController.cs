@@ -8,54 +8,96 @@ namespace CarDatingSite.Controllers
 
 {
     using System.Data.Entity;
-    using CarDatingSite.Models;
-    using System.Data.Entity.Migrations;
     using System.IO;
+
+    using CarDatingSite.Models;
+
+    using File = CarDatingSite.Models.File;
 
     public class CatsController : Controller
     {
         // GET: Cats
         public ActionResult Index()
         {
-            
             using (var catDb = new CatDB())
             {
-                
-                //iegūt kaķu sarakstu no kaķu datubāzes tabulas
-                var catListFromDb = catDb.CatProfiles.ToList();
+                // iegūt kaķu sarakstu no kaķu datubāzes tabulas
+                var catListFromDb = catDb.CatProfiles.Include(catProf => catProf.ProfilePicture).ToList();
 
-                //izveido skatu, tam iekšā iedodot kaķu sarakstu
+                // izveido skatu, tam iekšā iedodot kaķu sarakstu
                 return View(catListFromDb);
-
             }
         }
 
-        //pievienosim kaķi
         public ActionResult AddCat()
         {
+            return View();
+        }
 
-             return View();
+        public ActionResult GetCatProfilePicture(int catProfilePictureId)
+        {
+            using (var db = new CatDB())
+            {
+                var profilePic = db.Files.First(rec => rec.FileId == catProfilePictureId);
+                return File(profilePic.Content, profilePic.ContentType);
+            }
         }
 
         [HttpPost]
-        public ActionResult AddCat(CatProfile userCreatedCat)
+        public ActionResult AddCat(CatProfile userCreatedCat, HttpPostedFileBase uploadedPicture)
         {
             if (ModelState.IsValid == false)
             {
                 return View(userCreatedCat);
             }
 
-            //izveidot savienojumu ar datu bāzi
+            // izveido savienojumu ar datubāzi
             using (var catDb = new CatDB())
             {
-                //pievieno kaķi kaķu tabulā
+                // pievienojam kaķi kaķu tabulā
                 catDb.CatProfiles.Add(userCreatedCat);
 
-                //saglabājam izmaiņas datubāzē
+                // saglabājam izmaiņas datubāzē
                 catDb.SaveChanges();
+
+                // ja ir pievienota profila bilde
+                if (uploadedPicture != null)
+                {
+                    // izveidojam jaunu profila bildes datubāzes eksemplāru, ko ierakstīsim datubāzē
+                    var profilePic = new File();
+
+                    // saglabājam bildes faila nosaukumu
+                    profilePic.FileName = Path.GetFileName(uploadedPicture.FileName);
+
+                    // saglabājam bildes tipu
+                    profilePic.ContentType = uploadedPicture.ContentType;
+
+                    // izmantojam BinaryReader lai pārvērstu bildi baitos
+                    using (var reader = new BinaryReader(uploadedPicture.InputStream))
+                    {
+                        // saglabājam baitus datubāzes ierakstā
+                        profilePic.Content = reader.ReadBytes(uploadedPicture.ContentLength);
+                    }
+
+                    // pasakam profila bildei, kurš kaķa profils ir kaķa profils, kam šī bilde pieder
+                    profilePic.CatProfileId = userCreatedCat.CatId;
+                    profilePic.CatProfile = userCreatedCat;
+
+                    // pievienojam profila bildes datubāzes ierakstu Files tabulai
+                    catDb.Files.Add(profilePic);
+
+                    // saglabājam profila bildi datubāzē, lai iegūtu FileId priekš profila bildes ieraksta
+                    catDb.SaveChanges();
+
+                    // paskam kaķu profilam, kas ir viņa profila bilde
+                    userCreatedCat.ProfilePicture = profilePic;
+
+                    // saglabājam izmaiņas datubāzē
+                    catDb.SaveChanges();
+                }
             }
 
-            //pavēlām browserim atgriezties index lapā
+            // pavēlam browserim atgriezties Index lapā (t.i. pārlādēt to)
             return RedirectToAction("Index");
         }
 
@@ -69,73 +111,86 @@ namespace CarDatingSite.Controllers
 
             using (var catDb = new CatDB())
             {
-                //izveidojam jaunu profila bildes datubāzes ekspemplāru, ko ierakstīsim datubāzē
-                var profilePic = new Models.File();
-                //saglabājam bildes faila nosuakumu
-                profilePic.FileName = Path.GetFileName(uploadedPicture.FileName);
-
-                //saglabājam bildes tipu
-                profilePic.ContentType = uploadedPicture.ContentType;
-
-           
-                //izmantojam BynaryReader lai pārvērstu bildi baitos
-                using (var reader = new BinaryReader(uploadedPicture.InputStream))
+                // ja ir pievienota profila bilde
+                if (uploadedPicture != null)
                 {
-                    profilePic.Content = reader.ReadBytes(uploadedPicture.ContentLength);
+                    // atrodam šobrīdējo bildi, ja tāda ir
+                    var currentPic = catDb.Files.FirstOrDefault(fileRecord => fileRecord.CatProfileId == catProfile.CatId);
+                    if (currentPic != null)
+                    {
+                        catDb.Files.Remove(currentPic);
+                    }
+
+                    // izveidojam jaunu profila bildes datubāzes eksemplāru, ko ierakstīsim datubāzē
+                    var profilePic = new File();
+
+                    // saglabājam bildes faila nosaukumu
+                    profilePic.FileName = Path.GetFileName(uploadedPicture.FileName);
+
+                    // saglabājam bildes tipu
+                    profilePic.ContentType = uploadedPicture.ContentType;
+
+                    // izmantojam BinaryReader lai pārvērstu bildi baitos
+                    using (var reader = new BinaryReader(uploadedPicture.InputStream))
+                    {
+                        // saglabājam baitus datubāzes ierakstā
+                        profilePic.Content = reader.ReadBytes(uploadedPicture.ContentLength);
+                    }
+
+                    // pasakam profila bildei, kurš kaķa profils ir kaķa profils, kam šī bilde pieder
+                    profilePic.CatProfileId = catProfile.CatId;
+                    profilePic.CatProfile = catProfile;
+
+                    // pievienojam profila bildes datubāzes ierakstu Files tabulai
+                    catDb.Files.Add(profilePic);
+
+                    // paskam kaķu profilam, kas ir viņa profila bilde
+                    catProfile.ProfilePicture = profilePic;
                 }
 
-                //pasakam profile bildei kas ir piesaistītais kaķis
-                profilePic.CatProfileId = catProfile.CatId;
-                profilePic.CatProfile = catProfile;
-
-                //pievienojam profila bildes datubāzes ierakstu Files tabulai
-                catDb.Files.Add(profilePic);
-
-                //pasakam kaķu profila bildei, ka viņa ir viņa profila bilde
-                catProfile.File = profilePic;
-
-                //vajag using System.Data.Entity;
-                catDb.Entry(catProfile).State = System.Data.Entity.EntityState.Modified;
+                // pievienot using System.Data.Entity;
+                catDb.Entry(catProfile).State = EntityState.Modified;
                 catDb.SaveChanges();
             }
 
+            // pavēlam browserim atgriezties Index lapā (t.i. pārlādēt to)
             return RedirectToAction("Index");
         }
 
-
-        //kaķa rediģēšana
         public ActionResult EditCat(int editableCatId)
         {
             using (var catDb = new CatDB())
             {
-                var editableCat = catDb.CatProfiles.First(catProfile => catProfile.CatId == editableCatId);
-                return View("EditCat",editableCat);
+                var editableCat = catDb.CatProfiles.Include(catRecord => catRecord.ProfilePicture).First(catProfile => catProfile.CatId == editableCatId);
+                return View("EditCat", editableCat);
             }
         }
-
-
-        
-
 
         public ActionResult DeleteCats(int deletableCatId)
         {
             using (var catDb = new CatDB())
             {
 
-                //atrast kaķi kam pieder norādītais idenfikators
-                var deleteableCat = catDb.CatProfiles.First(catProfile => catProfile.CatId == deletableCatId);
+                // atrast kaķi, kam pieder norādītais identifikators
+                var deletableCat = catDb.CatProfiles.Include(catProf => catProf.ProfilePicture).First(record => record.CatId == deletableCatId);
 
-                //idzēst šo kaķi no tabulas
-                catDb.CatProfiles.Remove(deleteableCat);
+                // atrast kaķa bildi, ja tāda ir
+                if (deletableCat.ProfilePicture != null)
+                {
+                    // izdzēst šo bildi
+                    catDb.Files.Remove(deletableCat.ProfilePicture);
+                }
 
-                //saglabāt veiktās izmaiņas
+                // izdzēst šo kaķi no tabulas
+                catDb.CatProfiles.Remove(deletableCat);
+
+                // saglabāt veiktās izmaiņas datubāzē
                 catDb.SaveChanges();
-
             }
-            //Jāpievineo using.System.Net
-            //pavēlam browserim atgriezied Index lapā (t.i pārlādē to)
+
+            // jāpievieno using System.Net;
+            // pavēlam browserim atgriezties Index lapā (t.i. pārlādēt to)
             return RedirectToAction("Index");
         }
-
     }
 }

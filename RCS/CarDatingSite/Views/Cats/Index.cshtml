@@ -1,24 +1,34 @@
 ﻿@model List<CarDatingSite.Models.CatProfile>
 
+<div class="container">
+    <div class="row">
+        @Html.ActionLink("pievienot jaunu kaķi", "AddCat", "Cats", htmlAttributes: new { @class = "btn btn-info", role = "button" })
+    </div>
+</div>
 
-@Html.ActionLink("Pievienot jaunu kaķi", "AddCat", "Cats");
 
-
-<!-- kad vēlamies izsaukt c# kodu, lietojam at simbolu -->
-
+<!-- kad vēlamies izsaukt C# kodu, lietojam at simbolu -->
 @foreach (var cat in Model)
 {
-    @Html.ActionLink("Rediģēt kaķi", "EditCat", "Cats", new { editableCatId = cat.CatId }, null)
+
     <div class="row">
-        <div class="col-md-4">
-            @Html.ActionLink("Nodzēst kaķi", "DeleteCats", "Cats", new { deletableCatId = cat.CatId }, null)
-            <h2>Cat name:@cat.CatName</h2>
+        <div class="col-md-12">
+
+            <h2>Cat name: @cat.CatName</h2>
             <p> Cat age is @cat.CatAge</p>
-            <img width="300" height ="400" src ="@cat.CatImage" />                            
-            <p>Cat Description:@cat.CatDescription</p>
-            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+            <!-- CatsController -> GetCatProfilePicture (catProfilePictureId)
+            /Cats/GetCatProfilePicture?catProfilePictureId=5 -->
+            @if (cat.ProfilePicture != null)
+            {
+                <img src="~/Cats/GetCatProfilePicture?catProfilePictureId=@cat.ProfilePicture.CatProfileId" class="img-responsive" />
+            }
+            <p>
+                @cat.CatDescription
+            </p>
+            <p>
+                @Html.ActionLink("Rediģēt kaķi", "EditCat", "Cats", new { editableCatId = cat.CatId }, htmlAttributes: new { @class = "btn btn-info", role = "button" })
+                @Html.ActionLink("Nodzēst kaķi", "DeleteCats", "Cats", new { deletableCatId = cat.CatId }, htmlAttributes: new { @class = "btn btn-info", role = "button" })
+            </p>
         </div>
     </div>
-
-                }
-
+}

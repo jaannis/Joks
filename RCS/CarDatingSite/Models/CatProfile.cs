@@ -27,9 +27,6 @@ namespace CarDatingSite.Models
         [Display(Name = "Kaķa apraksts")]
         [Required(ErrorMessage = "Kaut kam labam taču jābūt")]
         public string CatDescription { get; set; }
-
-
-        public virtual File File { get; set; }
-
+        public virtual File ProfilePicture { get; set; }        
     }
 }

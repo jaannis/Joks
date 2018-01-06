@@ -12,29 +12,29 @@ namespace CarDatingSite.Models
     public class Blog
     {
         [Key]
-        public int PostId { get; set; }
+        public int BlogId { get; set; }
 
         [Display(Name = "e-pasta adrese")]
         [Required(ErrorMessage = "Ievadiet lūdzu e-pastu")]
         [EmailAddress(ErrorMessage = "Invalid Email Address")]
-        public string PostEmail { get; set; }
+        public string BlogEmail { get; set; }
 
 
         [Display(Name = "Vārds")]
         [Required(ErrorMessage = "Kā tevi sauc?")]
-        public string PostName { get; set; }
+        public string BlogName { get; set; }
 
         [Display(Name = "Virsraksts")]
         [Required(ErrorMessage = "Par ko stāstīsi?")]
-        public string PostTitle { get; set; }
+        public string BlogTitle { get; set; }
 
 
         [Display(Name = "Ieraksts")]
         [Required(ErrorMessage = "Ko labu vēlies pateikt?")]
-        public string PostText { get; set; }
+        public string BlogText { get; set; }
 
         [Display(Name = "Kaķa bilde")]
-        public string PostImage { get; set; }
+        public string BlogImage { get; set; }
 
     }
 }

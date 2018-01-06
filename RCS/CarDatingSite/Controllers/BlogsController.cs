@@ -5,16 +5,15 @@ using System.Web;
 using System.Web.Mvc;
 
 namespace CarDatingSite.Controllers
-
 {
     using System.Data.Entity;
     using CarDatingSite.Models;
     using System.Data.Entity.Migrations;
     using System.IO;
 
-    public class BlogController : Controller
+    public class BlogsController : Controller
     {
-        // GET: Blog
+        // GET: Post
         public ActionResult Index()
         {
 
@@ -22,23 +21,23 @@ namespace CarDatingSite.Controllers
             {
 
                 //iegūt postu sarakstu no postu datubāzes tabulas
-                var postListFromDb = catDb.Posts.ToList();
+                var blogListFromDb = catDb.Blogs.ToList();
 
                 //izveido skatu, tam iekšā iedodot postu sarakstu
-                return View(postListFromDb);
+                return View(blogListFromDb);
 
             }
         }
 
         //pievienosim postu
-        public ActionResult AddPost()
+        public ActionResult AddBlog()
         {
 
             return View();
         }
 
         [HttpPost]
-        public ActionResult AddPost(Blog userCreatedPost)
+        public ActionResult AddBlog(Blog userCreatedBlog)
         {
             if (ModelState.IsValid == false)
             {
@@ -49,7 +48,7 @@ namespace CarDatingSite.Controllers
             using (var catDb = new CatDB())
             {
                 //pievieno kaķi kaķu tabulā
-                catDb.Posts.Add(userCreatedPost);
+                catDb.Blogs.Add(userCreatedBlog);
 
                 //saglabājam izmaiņas datubāzē
                 catDb.SaveChanges();
@@ -60,7 +59,7 @@ namespace CarDatingSite.Controllers
         }
 
         [HttpPost]
-        public ActionResult EditPost(Blog blog, HttpPostedFileBase uploadedPicture)
+        public ActionResult EditBlog(Blog blog, HttpPostedFileBase uploadedPicture)
         {
             if (ModelState.IsValid == false)
             {
@@ -73,29 +72,30 @@ namespace CarDatingSite.Controllers
 
 
         //posta rediģēšana
-        public ActionResult EditPost(int editablePostId)
+        public ActionResult EditBlog(int editableBlogId)
         {
             using (var catDb = new CatDB())
             {
-                var editablePost = catDb.Posts.First(blog => blog.PostId == editablePostId);
-                return View("EditCat", editablePost);
+                var editableBlog = catDb.Blogs.First(blog => blog.BlogId == editableBlogId);
+                return View("EditPost", editableBlog);
             }
+
         }
 
 
 
 
 
-        public ActionResult DeletePost(int deletablePostId)
+        public ActionResult DeleteBlog(int deletableBlogId)
         {
             using (var catDb = new CatDB())
             {
 
                 //atrast postu kam pieder norādītais idenfikators
-                var deleteablePost = catDb.Posts.First(blog => blog.PostId == deletablePostId);
+                var deleteableBlog = catDb.Blogs.First(blog => blog.BlogId == deletableBlogId);
 
                 //izdzēst šo kaķi no tabulas
-                catDb.Posts.Remove(deleteablePost);
+                catDb.Blogs.Remove(deleteableBlog);
 
                 //saglabāt veiktās izmaiņas
                 catDb.SaveChanges();

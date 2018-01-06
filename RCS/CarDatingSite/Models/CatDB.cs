@@ -13,7 +13,7 @@ namespace CarDatingSite.Models
 
         public DbSet<File> Files { get; set; }
 
-        public DbSet<Blog> Posts { get; set; }
+        public DbSet<Blog> Blogs { get; set; }
 
     }
 }

@@ -233,9 +233,9 @@
     <Compile Include="Migrations\201801060820420_meginajums5.Designer.cs">
       <DependentUpon>201801060820420_meginajums5.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201801061917573_meginajums7.cs" />
-    <Compile Include="Migrations\201801061917573_meginajums7.Designer.cs">
-      <DependentUpon>201801061917573_meginajums7.cs</DependentUpon>
+    <Compile Include="Migrations\201801062015439_meginajums7.cs" />
+    <Compile Include="Migrations\201801062015439_meginajums7.Designer.cs">
+      <DependentUpon>201801062015439_meginajums7.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -358,8 +358,8 @@
     <EmbeddedResource Include="Migrations\201801060820420_meginajums5.resx">
       <DependentUpon>201801060820420_meginajums5.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801061917573_meginajums7.resx">
-      <DependentUpon>201801061917573_meginajums7.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201801062015439_meginajums7.resx">
+      <DependentUpon>201801062015439_meginajums7.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

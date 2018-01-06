@@ -3,7 +3,7 @@
 
 <h2>Rediģēt ierakstu</h2>
 
-@using (Html.BeginForm("EditPost", "Blogs", FormMethod.Post, new { enctype = "multipart/form-data" }
+@using (Html.BeginForm("EditBlog", "Blogs", FormMethod.Post, new { enctype = "multipart/form-data" }
 ))
 {
     @Html.HiddenFor(Model => Model.BlogId)

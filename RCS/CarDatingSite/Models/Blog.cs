@@ -17,21 +17,24 @@ namespace CarDatingSite.Models
         [Display(Name = "e-pasta adrese")]
         [Required(ErrorMessage = "Ievadiet lūdzu e-pastu")]
         [EmailAddress(ErrorMessage = "Invalid Email Address")]
-        public string Email { get; set; }
+        public string PostEmail { get; set; }
 
 
         [Display(Name = "Vārds")]
         [Required(ErrorMessage = "Kā tevi sauc?")]
-        public string Name { get; set; }
+        public string PostName { get; set; }
 
         [Display(Name = "Virsraksts")]
         [Required(ErrorMessage = "Par ko stāstīsi?")]
-        public string Title { get; set; }
+        public string PostTitle { get; set; }
 
 
         [Display(Name = "Ieraksts")]
         [Required(ErrorMessage = "Ko labu vēlies pateikt?")]
-        public string Blogtext { get; set; }
+        public string PostText { get; set; }
+
+        [Display(Name = "Kaķa bilde")]
+        public string PostImage { get; set; }
 
     }
 }

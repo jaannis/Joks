@@ -22,7 +22,7 @@ namespace CarDatingSite.Controllers
             {
 
                 //iegūt postu sarakstu no postu datubāzes tabulas
-                var postListFromDb = catDb.Blog.ToList();
+                var postListFromDb = catDb.Posts.ToList();
 
                 //izveido skatu, tam iekšā iedodot postu sarakstu
                 return View(postListFromDb);
@@ -42,14 +42,14 @@ namespace CarDatingSite.Controllers
         {
             if (ModelState.IsValid == false)
             {
-                return View(userCreatedPost);
+                return View("Index");
             }
 
             //izveidot savienojumu ar datu bāzi
             using (var catDb = new CatDB())
             {
                 //pievieno kaķi kaķu tabulā
-                catDb.Blog.Add(userCreatedPost);
+                catDb.Posts.Add(userCreatedPost);
 
                 //saglabājam izmaiņas datubāzē
                 catDb.SaveChanges();
@@ -77,7 +77,7 @@ namespace CarDatingSite.Controllers
         {
             using (var catDb = new CatDB())
             {
-                var editablePost = catDb.Blog.First(blog => blog.PostId == editablePostId);
+                var editablePost = catDb.Posts.First(blog => blog.PostId == editablePostId);
                 return View("EditCat", editablePost);
             }
         }
@@ -92,10 +92,10 @@ namespace CarDatingSite.Controllers
             {
 
                 //atrast postu kam pieder norādītais idenfikators
-                var deleteablePost = catDb.Blog.First(blog => blog.PostId == deletablePostId);
+                var deleteablePost = catDb.Posts.First(blog => blog.PostId == deletablePostId);
 
                 //izdzēst šo kaķi no tabulas
-                catDb.Blog.Remove(deleteablePost);
+                catDb.Posts.Remove(deleteablePost);
 
                 //saglabāt veiktās izmaiņas
                 catDb.SaveChanges();

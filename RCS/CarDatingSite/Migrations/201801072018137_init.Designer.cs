@@ -7,13 +7,13 @@ namespace CarDatingSite.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class newtable : IMigrationMetadata
+    public sealed partial class init : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(newtable));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(init));
         
         string IMigrationMetadata.Id
         {
-            get { return "201801051848130_new table"; }
+            get { return "201801072018137_init"; }
         }
         
         string IMigrationMetadata.Source

@@ -35,6 +35,10 @@ namespace CarDatingSite.Models
 
         [Display(Name = "Kaķa bilde")]
         public string BlogImage { get; set; }
-                
+
+        public DateTime BlogCreated { get; set; }
+
+        public DateTime BlogModified { get; set; }
+
     }
 }

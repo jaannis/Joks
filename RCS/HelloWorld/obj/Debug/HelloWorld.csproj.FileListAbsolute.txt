@@ -5,3 +5,10 @@ C:\kods\Joks\RCS\HelloWorld\obj\Debug\HelloWorld.csprojResolveAssemblyReference.
 C:\kods\Joks\RCS\HelloWorld\obj\Debug\HelloWorld.csproj.CoreCompileInputs.cache
 C:\kods\Joks\RCS\HelloWorld\obj\Debug\HelloWorld.exe
 C:\kods\Joks\RCS\HelloWorld\obj\Debug\HelloWorld.pdb
+C:\Users\Janis\Documents\GitHub\Joks\RCS\HelloWorld\bin\Debug\HelloWorld.exe.config
+C:\Users\Janis\Documents\GitHub\Joks\RCS\HelloWorld\bin\Debug\HelloWorld.exe
+C:\Users\Janis\Documents\GitHub\Joks\RCS\HelloWorld\bin\Debug\HelloWorld.pdb
+C:\Users\Janis\Documents\GitHub\Joks\RCS\HelloWorld\obj\Debug\HelloWorld.csprojResolveAssemblyReference.cache
+C:\Users\Janis\Documents\GitHub\Joks\RCS\HelloWorld\obj\Debug\HelloWorld.csproj.CoreCompileInputs.cache
+C:\Users\Janis\Documents\GitHub\Joks\RCS\HelloWorld\obj\Debug\HelloWorld.exe
+C:\Users\Janis\Documents\GitHub\Joks\RCS\HelloWorld\obj\Debug\HelloWorld.pdb

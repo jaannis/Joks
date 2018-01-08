@@ -44,6 +44,9 @@ namespace CarDatingSite.Controllers
                 return View("Index");
             }
 
+            userCreatedBlog.BlogCreated = DateTime.Now;
+            userCreatedBlog.BlogModified = DateTime.Now;
+
             //izveidot savienojumu ar datu bāzi
             using (var catDb = new CatDB())
             {
@@ -77,7 +80,7 @@ namespace CarDatingSite.Controllers
             using (var catDb = new CatDB())
             {
                 var editableBlog = catDb.Blogs.First(blog => blog.BlogId == editableBlogId);
-                return View("EditPost", editableBlog);
+                return View("EditBlog", editableBlog);
             }
 
         }

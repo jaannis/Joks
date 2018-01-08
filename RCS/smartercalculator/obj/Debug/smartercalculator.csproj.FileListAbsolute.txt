@@ -12,3 +12,10 @@ C:\code\Joks\RCS\smartercalculator\obj\Debug\smartercalculator.csprojResolveAsse
 C:\code\Joks\RCS\smartercalculator\obj\Debug\smartercalculator.csproj.CoreCompileInputs.cache
 C:\code\Joks\RCS\smartercalculator\obj\Debug\smartercalculator.exe
 C:\code\Joks\RCS\smartercalculator\obj\Debug\smartercalculator.pdb
+C:\Users\Janis\Documents\GitHub\Joks\RCS\smartercalculator\bin\Debug\smartercalculator.exe.config
+C:\Users\Janis\Documents\GitHub\Joks\RCS\smartercalculator\bin\Debug\smartercalculator.exe
+C:\Users\Janis\Documents\GitHub\Joks\RCS\smartercalculator\bin\Debug\smartercalculator.pdb
+C:\Users\Janis\Documents\GitHub\Joks\RCS\smartercalculator\obj\Debug\smartercalculator.csprojResolveAssemblyReference.cache
+C:\Users\Janis\Documents\GitHub\Joks\RCS\smartercalculator\obj\Debug\smartercalculator.csproj.CoreCompileInputs.cache
+C:\Users\Janis\Documents\GitHub\Joks\RCS\smartercalculator\obj\Debug\smartercalculator.exe
+C:\Users\Janis\Documents\GitHub\Joks\RCS\smartercalculator\obj\Debug\smartercalculator.pdb

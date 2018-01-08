@@ -17,7 +17,9 @@
             <p> E-pasts:  @blog.BlogEmail</p>
             <p> Title : @blog.BlogTitle</p>
             <p>Blog message :@blog.BlogText</p>
-            <img @blog.BlogImage class="img-responsive" />
+            <p>Created : @blog.BlogCreated</p>
+            <p>Modify: @blog.BlogModified</p>
+            <img src="@blog.BlogImage" class="img-responsive" />
             <p>
                 @Html.ActionLink("Rediģēt ierakstu", "EditBlog", "Blogs", new { editableBlogId = blog.BlogId }, htmlAttributes: new { @class = "btn btn-info", role = "button" })
                 @Html.ActionLink("Nodzēst ierakstu", "DeleteBlog", "Blogs", new { deletableBlogId = blog.BlogId }, htmlAttributes: new { @class = "btn btn-info", role = "button" })

@@ -62,13 +62,19 @@ namespace CarDatingSite.Controllers
         }
 
         [HttpPost]
-        public ActionResult EditBlog(Blog blog, HttpPostedFileBase uploadedPicture)
+        public ActionResult EditBlog (Blog Blog)
         {
             if (ModelState.IsValid == false)
             {
-                return View(blog);
+                return View(Blog);
             }
+            Blog.BlogModified = DateTime.Now;
 
+            using (var catDb = new CatDB())
+            {
+                catDb.Entry(Blog).State = EntityState.Modified;
+                catDb.SaveChanges();
+            }
 
             return RedirectToAction("Index");
         }

@@ -13,7 +13,7 @@ namespace CarDatingSite.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201801072018137_init"; }
+            get { return "201801081023397_init"; }
         }
         
         string IMigrationMetadata.Source

@@ -68,6 +68,7 @@ namespace CarDatingSite.Controllers
             {
                 return View(Blog);
             }
+
             Blog.BlogModified = DateTime.Now;
 
             using (var catDb = new CatDB())

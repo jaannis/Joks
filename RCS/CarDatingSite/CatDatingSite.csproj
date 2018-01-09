@@ -197,17 +197,14 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201801081356390_init.cs" />
-    <Compile Include="Migrations\201801081356390_init.Designer.cs">
-      <DependentUpon>201801081356390_init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801081706261_skolas versija.cs" />
-    <Compile Include="Migrations\201801081706261_skolas versija.Designer.cs">
-      <DependentUpon>201801081706261_skolas versija.cs</DependentUpon>
+    <Compile Include="Migrations\201801091853179_first.cs" />
+    <Compile Include="Migrations\201801091853179_first.Designer.cs">
+      <DependentUpon>201801091853179_first.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Blog.cs" />
+    <Compile Include="Models\BlogsForIndex.cs" />
     <Compile Include="Models\CatDB.cs" />
     <Compile Include="Models\CatProfile.cs" />
     <Compile Include="Models\File.cs" />
@@ -298,11 +295,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201801081356390_init.resx">
-      <DependentUpon>201801081356390_init.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801081706261_skolas versija.resx">
-      <DependentUpon>201801081706261_skolas versija.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201801091853179_first.resx">
+      <DependentUpon>201801091853179_first.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

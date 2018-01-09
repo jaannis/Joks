@@ -14,6 +14,7 @@ namespace CarDatingSite.Controllers
 
     using File = CarDatingSite.Models.File;
 
+    [Authorize]
     public class CatsController : Controller
     {
         // GET: Cats

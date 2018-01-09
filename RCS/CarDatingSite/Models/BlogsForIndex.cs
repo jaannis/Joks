@@ -6,15 +6,13 @@ using System.Web;
 
 namespace CarDatingSite.Models
 {
-    using System.ComponentModel.DataAnnotations;
-    using System.IO;
-
-    public class Blog
+    public class BlogsForIndex
     {
         [Key]
         public int BlogId { get; set; }
 
-        public string BlogCreatorID { get; set; }  
+        public string BlogCreatorID { get; set; }
+        public string BlogCreatorEmail { get; set; }
 
         [Display(Name = "Vārds")]
         [Required(ErrorMessage = "Kā tevi sauc?")]
@@ -35,7 +33,5 @@ namespace CarDatingSite.Models
         public DateTime BlogCreated { get; set; }
 
         public DateTime BlogModified { get; set; }
-
-
     }
 }

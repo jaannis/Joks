@@ -5,14 +5,14 @@ namespace CarDatingSite.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<CarDatingSite.Models.ApplicationDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<CarDatingSite.Models.CatDB>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(CarDatingSite.Models.ApplicationDbContext context)
+        protected override void Seed(CarDatingSite.Models.CatDB context)
         {
             //  This method will be called after migrating to the latest version.
 

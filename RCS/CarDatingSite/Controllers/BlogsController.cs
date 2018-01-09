@@ -10,7 +10,11 @@ namespace CarDatingSite.Controllers
     using CarDatingSite.Models;
     using System.Data.Entity.Migrations;
     using System.IO;
+    using System.Net.Mail;
+    using System.Net;
+    using Microsoft.AspNet.Identity;
 
+    [Authorize]
     public class BlogsController : Controller
     {
         // GET: Post
@@ -23,8 +27,32 @@ namespace CarDatingSite.Controllers
                 //iegūt postu sarakstu no postu datubāzes tabulas
                 var blogListFromDb = catDb.Blogs.ToList();
 
+                var listOfBlogsForIndex = new List<BlogsForIndex>();
+
+                foreach(var dbBlog in blogListFromDb)
+                {
+                    var blogForIndex = new BlogsForIndex();
+                    blogForIndex.BlogName = dbBlog.BlogName;
+                    blogForIndex.BlogCreated = dbBlog.BlogCreated;
+                    blogForIndex.BlogTitle = dbBlog.BlogTitle;
+                    blogForIndex.BlogText = dbBlog.BlogText;
+                    blogForIndex.BlogImage = dbBlog.BlogImage;
+                    blogForIndex.BlogId = dbBlog.BlogId;
+                    blogForIndex.BlogModified = dbBlog.BlogModified;
+
+
+                    using (var usersDb = new ApplicationDbContext())
+                    {
+                        var user = usersDb.Users.First(record => record.Id == dbBlog.BlogCreatorID);
+
+                        blogForIndex.BlogCreatorEmail = user.Email;
+                    }
+
+                    listOfBlogsForIndex.Add(blogForIndex);
+                }
+                
                 //izveido skatu, tam iekšā iedodot postu sarakstu
-                return View(blogListFromDb);
+                return View(listOfBlogsForIndex);
 
             }
         }
@@ -44,6 +72,12 @@ namespace CarDatingSite.Controllers
                 return View("Index");
             }
 
+            if (User.Identity.IsAuthenticated)
+            {
+                string userId = User.Identity.GetUserId();
+                userCreatedBlog.BlogCreatorID = userId;
+            }
+
             userCreatedBlog.BlogCreated = DateTime.Now;
             userCreatedBlog.BlogModified = DateTime.Now;
 
@@ -57,10 +91,14 @@ namespace CarDatingSite.Controllers
                 catDb.SaveChanges();
             }
 
+           
+
             //pavēlām browserim atgriezties index lapā
             return RedirectToAction("Index");
         }
 
+
+        //posta rediģēšana
         [HttpPost]
         public ActionResult EditBlog (Blog Blog)
         {
@@ -81,7 +119,6 @@ namespace CarDatingSite.Controllers
         }
 
 
-        //posta rediģēšana
         public ActionResult EditBlog(int editableBlogId)
         {
             using (var catDb = new CatDB())
@@ -116,5 +153,7 @@ namespace CarDatingSite.Controllers
             return RedirectToAction("Index");
         }
 
+        
+        
     }
 }
